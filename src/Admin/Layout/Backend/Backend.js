@@ -69,7 +69,7 @@ const Layout = props => {
                     edge="start"
                     color="inherit"
                     aria-label="open drawer"
-                    onClick={handleDrawerOpen}
+                    onClick={handleDrawerOpen} 
                     className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
                 >
                     <MenuIcon />
