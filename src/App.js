@@ -1,16 +1,21 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, BrowserRouter as Router} from 'react-router-dom';
+import Admin from './Admin/Admin';
 import AdminLogin from './Admin/Layout/Login/Login';
-import Dashboard from './Admin/Component/Dashboard/Dashboard';
+import AdminBackend from './Admin/Layout/Backend/Backend';
+import FrontLayout from './Web/Layout/Layout';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route path="/admin/login" component={AdminLogin} />
-        <Route path="/admin/dashboard" component={Dashboard} />
-      </Switch>
+      <Router>
+        <Switch>
+          <Route path="/admin/login" component={AdminLogin} />
+          <Route path="/admin/" component={Admin} />
+          <Route path="/" component={FrontLayout} />
+        </Switch>
+      </Router>
     </div>
   );
 }

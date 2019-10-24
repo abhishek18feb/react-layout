@@ -14,12 +14,15 @@ import useStyles from '../../Hooks/useStyle';
 const drawerWidth = 240;
 
 
-export default function Dashboard() {
+const  Dashboard = () => {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
+    <div>
+      this is sllkl ljljlk lkjlkj
     <Layout>
+        
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
@@ -43,5 +46,8 @@ export default function Dashboard() {
           </Grid>
         </Container>
     </Layout>
+    </div>
   );
 }
+
+export default Dashboard;

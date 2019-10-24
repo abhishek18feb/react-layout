@@ -16,7 +16,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import Badge from '@material-ui/core/Badge';
 import Typography from '@material-ui/core/Typography';
 
-
 const Layout = props => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
