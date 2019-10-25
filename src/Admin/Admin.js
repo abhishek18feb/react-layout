@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import {Route} from 'react-router';
 import Dashboard from './Component/Dashboard/Dashboard';
+import AdminLogin from './Layout/Login/Login';
 
 class Admin extends Component {
 	render(){
-        console.log(this.props.match.path);
+       
 		return (
 			<div>
-                This is routing page
                 <Route exact={true} path={`${this.props.match.path}/dashboard`} 
-                    component={withRouter(Dashboard)} />
+                    component={Dashboard} />
+                <Route exact={true} path={`${this.props.match.path}/`} component={AdminLogin} />
             </div>
 		)
 	}

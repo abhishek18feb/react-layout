@@ -10,19 +10,12 @@ import Layout from '../../Layout/Backend/Backend';
 import useStyles from '../../Hooks/useStyle';
 
 
-
-const drawerWidth = 240;
-
-
 const  Dashboard = () => {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
+  console.log('dashboadr workd')
   return (
-    <div>
-      this is sllkl ljljlk lkjlkj
     <Layout>
-        
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
@@ -46,7 +39,6 @@ const  Dashboard = () => {
           </Grid>
         </Container>
     </Layout>
-    </div>
   );
 }
 
