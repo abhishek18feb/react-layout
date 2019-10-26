@@ -53,10 +53,11 @@ const List = props =>{
                     }),
                 }}
                 />
-                <Route 
+                <Edit />
+               {/* <Route 
                     path={props.match.path + '/edit/:id'} 
                     component={Edit}
-                />
+                />  */}
             </Container>
         </Layout>
     )

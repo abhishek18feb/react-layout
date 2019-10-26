@@ -27,7 +27,7 @@ const Layout = props => {
       console.log('close value '+open)
       setOpen(false);
     };
-    
+    console.log(props.title)
     return (
         <React.Fragment>
             <div className={classes.root}>
@@ -44,7 +44,7 @@ const Layout = props => {
                     <MenuIcon />
                 </IconButton>
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                    {props.title?props.title:'Dashboard'}
+                   {props.title?props.title:'Dashboard'}
                 </Typography>
                 <IconButton color="inherit">
                     <Badge badgeContent={4} color="secondary">

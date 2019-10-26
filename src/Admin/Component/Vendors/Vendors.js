@@ -11,7 +11,7 @@ const Vendor = props =>{
     return (
         <React.Fragment>
             <Route exact={true} path={`${props.match.path}/add`} component={Add} />
-            <Route path={`${props.match.path}`} component={List} />
+            <Route exact={true} path={`${props.match.path}`} component={List} />
         </React.Fragment>
     )
 }

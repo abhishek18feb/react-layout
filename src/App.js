@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
       <Router>
         <Switch>
           
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" component={FrontLayout} />
         </Switch>
       </Router>
-    </div>
+    </React.Fragment>
   );
 }
 
