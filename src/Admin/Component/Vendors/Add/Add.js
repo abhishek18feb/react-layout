@@ -9,6 +9,8 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import MenuItem from '@material-ui/core/MenuItem';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+
 
 const Add = props =>{
     console.log(props);
@@ -16,20 +18,20 @@ const Add = props =>{
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const salutation = [
         {
-          value: 'USD',
-          label: '$',
+          value: 'Mr.',
+          label: 'Mr.',
         },
         {
-          value: 'EUR',
-          label: '€',
+          value: 'Mrs.',
+          label: 'Mrs.',
         },
         {
-          value: 'BTC',
-          label: '฿',
+          value: 'Ms.',
+          label: 'Miss.',
         },
         {
-          value: 'JPY',
-          label: '¥',
+          value: 'Dr.',
+          label: 'Dr.',
         },
       ];
 
@@ -82,18 +84,45 @@ const Add = props =>{
                     <Grid item xs={12} md={4}>
                         <TextField required id="cardNumber" label="Card number" fullWidth />
                     </Grid>
-
-                    <Grid item xs={12} md={6}>
-                    <TextField required id="expDate" label="Expiry date" fullWidth />
+                    <Grid item xs={12} md={12}>
+                        <TextField
+                            required
+                            id="vendor-display-name"
+                            label="Vendor Display Name"
+                            helperText="Vendor Display Name"
+                            fullWidth
+                        />
                     </Grid>
+                    <Grid item xs={12} md={12}>
+                        <TextField required id="vendor-email" label="Vendor Email" fullWidth />
+                    </Grid>
+
+                    <Grid item xs={12} md={5}>
+                        <TextField required id="work-phone" label="Work Phone" fullWidth />
+                    </Grid>
+
+                    <Grid item xs={12} md={5}>
+                        <TextField required id="mobile" label="Mobile" fullWidth />
+                    </Grid>
+                    <Grid item xs={12} md={2}>Add More Details</Grid>
                     <Grid item xs={12} md={6}>
-                    <TextField
-                        required
-                        id="cvv"
-                        label="CVV"
-                        helperText="Last three digits on signature strip"
-                        fullWidth
-                    />
+                        <Grid container  alignItems="flex-end">
+                            <Grid item>
+                                <AccountCircle />
+                            </Grid>
+                            <Grid item>
+                                <TextField id="input-with-icon-grid" label="Skype Contact" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} md={5}>
+                        <TextField required id="designation" label="Designation" fullWidth />
+                    </Grid>
+                    <Grid item xs={12} md={5}>
+                        <TextField required id="department" label="Department" fullWidth />
+                    </Grid>
+                    <Grid item xs={12} md={5}>
+                        <TextField required id="website" label="Website" fullWidth />
                     </Grid>
                     <Grid item xs={12}>
                     <FormControlLabel
