@@ -10,6 +10,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import MenuItem from '@material-ui/core/MenuItem';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Tabs from '../../../UI/Tabs/Tabs';
+import Select from 'react-select';
+import './Add.css';
 
 
 const Add = props =>{
@@ -34,7 +37,11 @@ const Add = props =>{
           label: 'Dr.',
         },
       ];
-
+    const options = [
+        { value: 'INR', label: 'INR-Rupees' },
+        { value: 'USD', label: 'USD-Dollars' },
+        { value: 'EUR', label: 'EUR-Euro' },
+      ];
 
     const [values, setValues] = React.useState({
             name: 'Cat in the Hat',
@@ -124,11 +131,41 @@ const Add = props =>{
                     <Grid item xs={12} md={5}>
                         <TextField required id="website" label="Website" fullWidth />
                     </Grid>
+                    <Grid item xs={12} md={12}>
+                        <Tabs>
+                            <div label="Other Details">
+                               
+                                <Grid item xs={12} md={12}>
+                                    <Select
+                                        // value={selectedOption}
+                                        // onChange={this.handleSelectChange}
+                                        options={options}
+                                    />
+                                </Grid>
+
+                            </div>
+                            <div label="Address">
+                                After 'while, <em>Crocodile</em>!
+                            </div>
+                            <div label="Contact Persons">
+                                Nothing to see here, this tab is <em>extinct</em>!
+                            </div>
+                            <div label="Custom Fields">
+                                Nothing to see here, this tab is <em>extinct</em>!
+                            </div>
+                            <div label="Reporting Tags">
+                                Nothing to see here, this tab is <em>extinct</em>!
+                            </div>
+                        </Tabs>
+                    </Grid>
+                    
+               
+
                     <Grid item xs={12}>
-                    <FormControlLabel
-                        control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-                        label="Remember credit card details for next time"
-                    />
+                        <FormControlLabel
+                            control={<Checkbox color="secondary" name="saveCard" value="yes" />}
+                            label="Remember credit card details for next time"
+                        />
                     </Grid>
                 </Grid> 
             </Container>
