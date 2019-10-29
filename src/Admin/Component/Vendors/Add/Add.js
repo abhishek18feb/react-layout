@@ -19,6 +19,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Select from 'react-select';
 import ContactPersonsComp from '../ContactPersons';
+import AddressComp from '../AddressComp';
 import './Add.css';
 
 
@@ -54,11 +55,7 @@ const Add = props =>{
         { value: 'USD', label: 'USD-Dollars' },
         { value: 'EUR', label: 'EUR-Euro' },
     ];
-    const countries = [
-        {value: 'India', label:'India'},
-        {value: 'Bhutan', label:'Bhutan'},
-        {value: 'Japan', label:'Japan'}
-    ]
+
 
     const [values, setValues] = React.useState({
             name: 'Cat in the Hat',
@@ -75,7 +72,8 @@ const Add = props =>{
     const [contactPersonState, setContactPersons] = useState([
         {...contactPersons}
     ]);
-    
+ 
+    /**Code for the adding contact person */
     const addContactPerson = () => {
         setContactPersons([...contactPersonState, {...contactPersons}]);
     };
@@ -97,6 +95,14 @@ const Add = props =>{
         updatedContacts[id][name] = e.target.value;
         setContactPersons(updatedContacts);
     };
+    /**  Code for the Address Fields */
+    const addressFields = {country:'India', street1:'', street2:'', city:'', state:'', zipCode:'', phone:'', fax:''};
+    const [billingAddress, setBillingAddress] = useState(addressFields);
+    const [shippingAddress, setShippingAddress] = useState(addressFields);
+    const copyShippingAddress =() =>{
+        setShippingAddress(...billingAddress);
+    }
+
     return (
         <Layout title="Add Vendor">
             <Container maxWidth="lg" className={classes.container}>
@@ -126,7 +132,6 @@ const Add = props =>{
                             </MenuItem>
                           ))}
                         </TextField>
-
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <TextField required id="cardNumber" label="Card number" fullWidth />
@@ -218,86 +223,13 @@ const Add = props =>{
                                 </Grid>
                             </div>
                             <div label="Address">
-                                <Grid container spacing={3}>
-                                    <Grid item xs={12} md={6}>
-                                        Billing Address
-                                        <Grid container spacing={3}>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-attension" label="Attension" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <Select
-                                                    // value={selectedOption}
-                                                    // onChange={this.handleSelectChange}
-                                                    options={countries}
-                                                    placeholder="Country"
-                                                    fullWidth
-                                                    id="ba-country"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 1" />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 2" />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-city" label="City" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-state" label="State" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-zip-code" label="Zip Code" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-phone" label="Phone" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-fax" label="Fax" fullWidth />
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item xs={12} md={6}>
-                                        Shipping Address
-                                        <Grid container spacing={3}>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-attension" label="Attension" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <Select
-                                                    // value={selectedOption}
-                                                    // onChange={this.handleSelectChange}
-                                                    options={countries}
-                                                    placeholder="Country"
-                                                    fullWidth
-                                                    id="ba-country"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 1" />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 2" />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-city" label="City" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-state" label="State" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-zip-code" label="Zip Code" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-phone" label="Phone" fullWidth />
-                                            </Grid>
-                                            <Grid item xs={12} md={12}>
-                                                <TextField required id="ba-fax" label="Fax" fullWidth />
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
+                                <AddressComp 
+                                    billingAddress={billingAddress} 
+                                    shippingAddress={shippingAddress}
+                                    setBillingAddress={setBillingAddress}
+                                    setShippingAddress={setShippingAddress}    
+                                    copyShippingAddress={copyShippingAddress}
+                                />
                             </div>
                             <div label="Contact Persons">
                                 <Grid container spacing={3}>
@@ -325,22 +257,23 @@ const Add = props =>{
                                                     salutation={salutation} />)
                                             })
                                         }
-                                           
                                         </TableBody>
                                     </Table>
                                 </Grid>
                             </div>
                             <div label="Custom Fields">
-                                Nothing to see here, this tab is <em>extinct</em>!
+                                Start adding custom fields for your contacts by going to Settings  Preferences  Customers and Vendors. You can add as many as Ten extra fields, as well as refine the address format of your customers from there.
                             </div>
                             <div label="Reporting Tags">
-                                Nothing to see here, this tab is <em>extinct</em>!
+                                You've not created any Reporting Tags. Start creating reporting tags by going to More Settings  Reporting Tags in Zoho Books
+                            </div>
+                            <div label="Remarks">
+                                <Grid item xs={12} md={8}>
+                                    <TextareaAutosize aria-label="Remarks" rows={5} style={{ width:"100%" }} placeholder="remark" />
+                                </Grid>
                             </div>
                         </Tabs>
                     </Grid>
-                    
-               
-
                     <Grid item xs={12}>
                         <FormControlLabel
                             control={<Checkbox color="secondary" name="saveCard" value="yes" />}
