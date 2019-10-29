@@ -79,7 +79,13 @@ const Add = props =>{
         setContactPersons([...contactPersonState, {...contactPersons}]);
     };
     const removeContactPerson = index =>{
-        console.log('Contact Person Remove Called')
+        //console.log(index);
+        console.log('Contact Person Remove Called at index '+index)
+        let updatedContacts = [...contactPersonState];
+        
+        updatedContacts.splice(index,1);
+        console.log(updatedContacts);
+        setContactPersons(updatedContacts);
     }
     const handleContactPersonChange = (e) => {
         console.log(e.target.value);
@@ -383,7 +389,7 @@ const Add = props =>{
                                                             value={contactPersonState[idx].mobile}
                                                             onChange={handleContactPersonChange}  fullWidth />
                                                     </TableCell>
-                                                    <TableCell><input type="button" value="Remove Person" onClick={removeContactPerson} /></TableCell>
+                                                    <TableCell><input type="button" value="Remove Person" onClick={(index)=>removeContactPerson(idx)} /></TableCell>
                                                 </TableRow>
                                                 );      
                                             })
