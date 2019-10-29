@@ -82,8 +82,12 @@ const Add = props =>{
         console.log('Contact Person Remove Called')
     }
     const handleContactPersonChange = (e) => {
+        console.log(e.target.value);
+        console.log((e.target.name).split("-"))
+        let [name, id] = (e.target.name).split("-");
+        // console.log(e.target);
         const updatedContacts = [...contactPersonState];
-        updatedContacts[e.target.dataset.idx][e.target.className] = e.target.value;
+        updatedContacts[id][name] = e.target.value;
         setContactPersons(updatedContacts);
     };
     return (
@@ -318,7 +322,7 @@ const Add = props =>{
                                                         <TextField
                                                                 id={salut}
                                                                 name={salut}
-                                                                data-idx={idx}
+                                                                dataset={idx}
                                                                 select
                                                                 label="Salutation"
                                                                 className="Salutation"
@@ -342,7 +346,7 @@ const Add = props =>{
                                                     <TableCell component="th" scope="row">
                                                         <TextField required name={firstName} 
                                                                     className="firstName"
-                                                                    data-idx={idx} 
+                                                                    dataset={idx} 
                                                                     id={firstName} label="First Name" 
                                                                     value={contactPersonState[idx].firstName}
                                                                     onChange={handleContactPersonChange}  fullWidth />
