@@ -100,7 +100,8 @@ const Add = props =>{
     const [billingAddress, setBillingAddress] = useState(addressFields);
     const [shippingAddress, setShippingAddress] = useState(addressFields);
     const copyShippingAddress =() =>{
-        setShippingAddress(...billingAddress);
+        //console.log('copying billing address')
+        setShippingAddress(billingAddress);
     }
 
     return (

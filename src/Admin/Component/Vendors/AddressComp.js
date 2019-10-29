@@ -21,7 +21,7 @@ const AddressComp = ({billingAddress,shippingAddress,setBillingAddress,setShippi
                         </Grid>
                         <Grid item xs={12} md={12}>
                             <Select
-                                value={billingAddress.country}
+                                defaultValue={billingAddress.country}
                                 onChange={
                                             event=>{
                                                 let country=event.value
@@ -35,25 +35,88 @@ const AddressComp = ({billingAddress,shippingAddress,setBillingAddress,setShippi
                             />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 1" />
+                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 1" 
+                                value={billingAddress.street1} 
+                                onChange={
+                                    event=>{
+                                        let street1=event.target.value
+                                        //console.log(event.target.value) 
+                                        setBillingAddress({...billingAddress, street1:street1})
+                                    }
+                                }
+                            />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 2" />
+                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 2" 
+                                value={billingAddress.street2} 
+                                onChange={
+                                    event=>{
+                                        let street2=event.target.value
+                                        //console.log(event.target.value) 
+                                        setBillingAddress({...billingAddress, street2:street2})
+                                    }
+                                }
+                            />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-city" label="City" fullWidth />
+                            <TextField required id="ba-city" label="City" 
+                                        value={billingAddress.city} 
+                                        onChange={
+                                            event=>{
+                                                let city=event.target.value
+                                                //console.log(event.target.value) 
+                                                setBillingAddress({...billingAddress, city:city})
+                                            }
+                                        }
+                                        fullWidth />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-state" label="State" fullWidth />
+                            <TextField required id="ba-state" label="State" 
+                                value={billingAddress.state} 
+                                onChange={
+                                    event=>{
+                                        let state=event.target.value
+                                        //console.log(event.target.value) 
+                                        setBillingAddress({...billingAddress, state:state})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-zip-code" label="Zip Code" fullWidth />
+                            <TextField required id="ba-zip-code" label="Zip Code" 
+                                value={billingAddress.zipCode} 
+                                onChange={
+                                    event=>{
+                                        let zipCode=event.target.value
+                                        //console.log(event.target.value) 
+                                        setBillingAddress({...billingAddress, zipCode:zipCode})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-phone" label="Phone" fullWidth />
+                            <TextField required id="ba-phone" label="Phone" 
+                                value={billingAddress.phone} 
+                                onChange={
+                                    event=>{
+                                        let phone=event.target.value
+                                        //console.log(event.target.value) 
+                                        setBillingAddress({...billingAddress, phone:phone})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-fax" label="Fax" fullWidth />
+                            <TextField required id="ba-fax" label="Fax" 
+                                value={billingAddress.fax} 
+                                onChange={
+                                    event=>{
+                                        let fax=event.target.value
+                                        //console.log(event.target.value) 
+                                        setBillingAddress({...billingAddress, fax:fax})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -66,8 +129,15 @@ const AddressComp = ({billingAddress,shippingAddress,setBillingAddress,setShippi
                         </Grid>
                         <Grid item xs={12} md={12}>
                             <Select
-                                // value={selectedOption}
-                                // onChange={this.handleSelectChange}
+                                defaultValue={shippingAddress.country}
+                                value={shippingAddress.country}
+                                onChange={
+                                    event=>{
+                                        let country=event.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, country:country})
+                                    }
+                                }
                                 options={countries}
                                 placeholder="Country"
                                 fullWidth
@@ -75,25 +145,88 @@ const AddressComp = ({billingAddress,shippingAddress,setBillingAddress,setShippi
                             />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 1" />
+                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 1" 
+                                value={shippingAddress.street1} 
+                                onChange={
+                                    event=>{
+                                        let street1=event.target.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, street1:street1})
+                                    }
+                                }
+                            />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 2" />
+                            <TextareaAutosize aria-label="Address" rows={3} style={{ width:"100%" }} placeholder="Street 2" 
+                                value={shippingAddress.street2} 
+                                onChange={
+                                    event=>{
+                                        let street2=event.target.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, street2:street2})
+                                    }
+                                }
+                            />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-city" label="City" fullWidth />
+                            <TextField required id="ba-city" label="City" fullWidth 
+                                value={shippingAddress.city} 
+                                onChange={
+                                    event=>{
+                                        let city=event.target.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, city:city})
+                                    }
+                                }
+                            />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-state" label="State" fullWidth />
+                            <TextField required id="ba-state" label="State" 
+                                value={shippingAddress.state} 
+                                onChange={
+                                    event=>{
+                                        let state=event.target.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, state:state})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-zip-code" label="Zip Code" fullWidth />
+                            <TextField required id="ba-zip-code" label="Zip Code" 
+                                value={shippingAddress.zipCode} 
+                                onChange={
+                                    event=>{
+                                        let zipCode=event.target.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, zipCode:zipCode})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-phone" label="Phone" fullWidth />
+                            <TextField required id="ba-phone" label="Phone" 
+                                value={shippingAddress.phone} 
+                                onChange={
+                                    event=>{
+                                        let phone=event.target.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, phone:phone})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField required id="ba-fax" label="Fax" fullWidth />
+                            <TextField required id="ba-fax" label="Fax" 
+                                value={shippingAddress.fax} 
+                                onChange={
+                                    event=>{
+                                        let fax=event.target.value
+                                        //console.log(event.target.value) 
+                                        setShippingAddress({...shippingAddress, fax:fax})
+                                    }
+                                }
+                            fullWidth />
                         </Grid>
                     </Grid>
                 </Grid>
