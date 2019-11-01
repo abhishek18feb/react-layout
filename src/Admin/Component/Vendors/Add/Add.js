@@ -8,7 +8,6 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import MenuItem from '@material-ui/core/MenuItem';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Tabs from '../../../UI/Tabs/Tabs';
@@ -20,6 +19,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Select from 'react-select';
 import ContactPersonsComp from '../ContactPersons';
 import AddressComp from '../AddressComp';
+import VendorComp from '../VendorComp';
 import './Add.css';
 
 
@@ -103,6 +103,9 @@ const Add = props =>{
         //console.log('copying billing address')
         setShippingAddress(billingAddress);
     }
+    /** Code for Vendors Field */
+    const [vendorFields, setVendor] = useState({salutation:'', firstName:'', lastName:'', companyName:'', displayName:''
+    ,vendorEmail:'', workPhone:'', mobile:'', skype:'', designation:'', department:'', website:''});
 
     return (
         <Layout title="Add Vendor">
@@ -111,75 +114,8 @@ const Add = props =>{
                     Add New Vendor
                 </Typography>
                 <Grid container spacing={3}>
-                    <Grid item xs={12} md={4}>
-                        <TextField
-                            id="standard-select-salutation"
-                            select
-                            label="Salutation"
-                            className={classes.textField}
-                            value={values.salutation}
-                            onChange={handleChange('salutation')}
-                            SelectProps={{
-                            MenuProps: {
-                                className: classes.menu,
-                            },
-                            }}
-                            helperText="Please select Salutation"
-                            margin="normal"
-                            fullWidth
-                        >{salutation.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))}
-                        </TextField>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <TextField required id="cardNumber" label="Card number" fullWidth />
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <TextField required id="cardNumber" label="Card number" fullWidth />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                        <TextField
-                            required
-                            id="vendor-display-name"
-                            label="Vendor Display Name"
-                            helperText="Vendor Display Name"
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                        <TextField required id="vendor-email" label="Vendor Email" fullWidth />
-                    </Grid>
-
-                    <Grid item xs={12} md={6}>
-                        <TextField required id="work-phone" label="Work Phone" fullWidth />
-                    </Grid>
-
-                    <Grid item xs={12} md={6}>
-                        <TextField required id="mobile" label="Mobile" fullWidth />
-                    </Grid>
-                    {/* <Grid item xs={12} md={2}>Add More Details</Grid> */}
-                    <Grid item xs={12} md={6}>
-                        <Grid container  alignItems="flex-end">
-                            <Grid item>
-                                <AccountCircle />
-                            </Grid>
-                            <Grid item>
-                                <TextField id="input-with-icon-grid" label="Skype Contact" />
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <TextField required id="designation" label="Designation" fullWidth />
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <TextField required id="department" label="Department" fullWidth />
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <TextField required id="website" label="Website" fullWidth />
-                    </Grid>
+                    <VendorComp salutation={salutation} classes={classes} 
+                                vendorFields={vendorFields} setVendor={setVendor} />
                     <Grid item xs={12} md={12}>
                         <Tabs>
                             <div label="Other Details">
