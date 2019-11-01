@@ -153,14 +153,14 @@ const Add = props =>{
                         <TextField required id="vendor-email" label="Vendor Email" fullWidth />
                     </Grid>
 
-                    <Grid item xs={12} md={5}>
+                    <Grid item xs={12} md={6}>
                         <TextField required id="work-phone" label="Work Phone" fullWidth />
                     </Grid>
 
-                    <Grid item xs={12} md={5}>
+                    <Grid item xs={12} md={6}>
                         <TextField required id="mobile" label="Mobile" fullWidth />
                     </Grid>
-                    <Grid item xs={12} md={2}>Add More Details</Grid>
+                    {/* <Grid item xs={12} md={2}>Add More Details</Grid> */}
                     <Grid item xs={12} md={6}>
                         <Grid container  alignItems="flex-end">
                             <Grid item>
@@ -171,13 +171,13 @@ const Add = props =>{
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} md={5}>
+                    <Grid item xs={12} md={6}>
                         <TextField required id="designation" label="Designation" fullWidth />
                     </Grid>
-                    <Grid item xs={12} md={5}>
+                    <Grid item xs={12} md={6}>
                         <TextField required id="department" label="Department" fullWidth />
                     </Grid>
-                    <Grid item xs={12} md={5}>
+                    <Grid item xs={12} md={6}>
                         <TextField required id="website" label="Website" fullWidth />
                     </Grid>
                     <Grid item xs={12} md={12}>
