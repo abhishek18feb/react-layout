@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+* {
+  @apply box-border;
+}
+body {
+  @apply p-5;
+  font-family: Arial;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  @apply text-[40px] text-center p-[30px];
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  @apply float-left w-9/12;
+}
+
+/* Right column */
+.rightcolumn {
+  @apply float-left w-3/12 pl-5;
+}
+
+/* Fake image */
+.fakeimg {
+  @apply bg-[#aaa] w-full p-5;
+}
+
+/* Add a card effect for articles */
+.card {
+  @apply bg-[white] mt-5 p-5;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  @apply content-[""] table clear-both;
+}
+
+/* Footer */
+.footer {
+  @apply text-center mt-5 p-5;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn,
+  .rightcolumn {
+    @apply w-full p-0;
+  }
+}
+
